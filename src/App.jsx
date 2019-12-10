@@ -10,7 +10,8 @@ import mapboxgl from 'mapbox-gl';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX;
 
 const styles = theme => ({
-  fuck: {
+  mapdiv: {
+    height: 'calc(100vh - 75px)',
     // border: '1px solid red',
     // padding: theme.spacing(3),
     // margin: 'auto',
@@ -52,7 +53,6 @@ class App extends Component {
     const { lng, lat, zoom } = this.state;
     return (
       <div className={cn(classes.fuck)}>
-        <CssBaseline />
         <Button
           variant={`contained`}
           color={`primary`}>
@@ -61,7 +61,7 @@ class App extends Component {
         <div className="">
           <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
         </div>
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+        <div ref={el => this.mapContainer = el} className={cn(classes.mapdiv)} />
       </div>
     );
   }
